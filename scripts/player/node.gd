@@ -11,3 +11,6 @@ func _enter() -> void:
 
 func _exit() -> void:
 	pass
+
+func _debug() -> void:
+	print("(no debug values)")
