@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ct1s8ut8f3oqk"]
+
+[ext_resource type="Script" uid="uid://co8e50uftlxdi" path="res://scripts/alim/control/main menu/main_menu_panel.gd" id="1_vmd3t"]
+[ext_resource type="Script" uid="uid://bn1anrk4nli0m" path="res://scripts/alim/control/main menu/settings.gd" id="2_bwalt"]
+
+[node name="main menu" type="Control" unique_id=1613050171]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Control" parent="." unique_id=645886282 node_paths=PackedStringArray("SettingsNode")]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 280.0
+grow_vertical = 2
+script = ExtResource("1_vmd3t")
+SettingsNode = NodePath("../Settings")
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=942447210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=509223609]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=920642658]
+layout_mode = 2
+text = "Defenders of the gem"
+horizontal_alignment = 1
+
+[node name="Graybox" type="Button" parent="Panel/VBoxContainer" unique_id=1607340895]
+layout_mode = 2
+text = "Graybox"
+
+[node name="Settings" type="Button" parent="Panel/VBoxContainer" unique_id=2049821992]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer" unique_id=1588850811]
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" type="Control" parent="." unique_id=1595830973]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.162
+anchor_right = 0.786
+anchor_bottom = 0.92700005
+offset_left = -25.0
+offset_top = -17.975998
+offset_right = -25.472046
+offset_bottom = -17.696045
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bwalt")
+
+[node name="Panel" type="Panel" parent="Settings" unique_id=27391060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" unique_id=779775189]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer" unique_id=1470787226]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Overall volume" type="VBoxContainer" parent="Settings/VBoxContainer" unique_id=907574148]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Overall volume" unique_id=73923935]
+layout_mode = 2
+text = "Overall volume :"
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/Overall volume" unique_id=1375166668]
+layout_mode = 2
+min_value = -100.0
+
+[node name="The volume of the music" type="VBoxContainer" parent="Settings/VBoxContainer" unique_id=66943681]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/The volume of the music" unique_id=2031295909]
+layout_mode = 2
+text = "The volume of the music :"
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/The volume of the music" unique_id=1655659874]
+layout_mode = 2
+
+[node name="The volume of the effects" type="VBoxContainer" parent="Settings/VBoxContainer" unique_id=643380644]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/The volume of the effects" unique_id=1348549512]
+layout_mode = 2
+text = "The volume of the effects :"
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/The volume of the effects" unique_id=322774604]
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/VBoxContainer/Graybox" to="Panel" method="_on_graybox_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Settings" to="Panel" method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="Panel" method="_on_quit_pressed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Overall volume/HSlider" to="Settings" method="volume_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/The volume of the music/HSlider" to="Settings" method="music_volume_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/The volume of the effects/HSlider" to="Settings" method="effect_volume_changed"]
