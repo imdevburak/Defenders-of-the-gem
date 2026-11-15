@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://crrducoxjseb"]
+
+[ext_resource type="Script" uid="uid://cor3pgjedltfm" path="res://scenes/player/StateMachine.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://dax4lfwcjjydu" path="res://scenes/player/player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://y46elvwrgxtf" path="res://scenes/player/move.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://bstrccipl6enr" path="res://scenes/player/InputManager.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://dip5500f7tc5k" path="res://scenes/player/airborn.gd" id="4_p47bc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdlsc"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1376806514]
+script = ExtResource("1_lvxji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484339234]
+shape = SubResource("CapsuleShape2D_sdlsc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=239062626]
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=407123920]
+
+[node name="Node" type="Node" parent="." unique_id=1656168921 node_paths=PackedStringArray("current_state")]
+script = ExtResource("1_dovo2")
+current_state = NodePath("move")
+metadata/_custom_type_script = "uid://cor3pgjedltfm"
+
+[node name="move" type="Node" parent="Node" unique_id=2109042922 node_paths=PackedStringArray("inp_man", "player")]
+script = ExtResource("2_dovo2")
+inp_man = NodePath("../../InputManager")
+speed = 1000.0
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="airborn" type="Node" parent="Node" unique_id=1739525470 node_paths=PackedStringArray("player")]
+script = ExtResource("4_p47bc")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="InputManager" type="Node" parent="." unique_id=899134342]
+script = ExtResource("3_gmlin")
