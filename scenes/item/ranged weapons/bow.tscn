@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvlxf4r45qntd"]
+
+[ext_resource type="Script" uid="uid://dushrvi8oiius" path="res://scripts/alim/item/weapon/ranged weapons.gd" id="1_uoh32"]
+[ext_resource type="PackedScene" uid="uid://cnrvqxabp6qax" path="res://scenes/item/throwing weapons/projectile/arrow.tscn" id="2_oqif0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egnq3"]
+size = Vector2(9, 18)
+
+[node name="bow" type="Node2D" unique_id=663544274 node_paths=PackedStringArray("RigidBody")]
+script = ExtResource("1_uoh32")
+projectile = ExtResource("2_oqif0")
+RigidBody = NodePath("RigidBody2D")
+metadata/_custom_type_script = "uid://dushrvi8oiius"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2146735671]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2078982154]
+shape = SubResource("RectangleShape2D_egnq3")

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://crrducoxjseb"]
+
+[ext_resource type="Script" uid="uid://cor3pgjedltfm" path="res://scripts/player/StateMachine.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://dax4lfwcjjydu" path="res://scripts/player/player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://y46elvwrgxtf" path="res://scripts/player/move.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://bstrccipl6enr" path="res://scripts/player/InputManager.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://dip5500f7tc5k" path="res://scripts/player/airborn.gd" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://ct58xhmotpdim" path="res://scripts/player/grab.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://dotwqaybjbyd0" path="res://scripts/player/idle.gd" id="6_qek5x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdlsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obowi"]
+size = Vector2(56, 30)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1376806514]
+script = ExtResource("1_lvxji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484339234]
+shape = SubResource("CapsuleShape2D_sdlsc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=239062626]
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=407123920]
+
+[node name="Node" type="Node" parent="." unique_id=1656168921 node_paths=PackedStringArray("current_state")]
+script = ExtResource("1_dovo2")
+current_state = NodePath("move")
+metadata/_custom_type_script = "uid://cor3pgjedltfm"
+
+[node name="move" type="Node" parent="Node" unique_id=2109042922 node_paths=PackedStringArray("player", "inp_man")]
+script = ExtResource("2_dovo2")
+player = NodePath("../..")
+inp_man = NodePath("../../InputManager")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="airborn" type="Node" parent="Node" unique_id=1739525470 node_paths=PackedStringArray("player")]
+script = ExtResource("4_p47bc")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="grab" type="Node" parent="Node" unique_id=1870332096 node_paths=PackedStringArray("inp_man", "player", "grab_range")]
+script = ExtResource("5_0owmy")
+inp_man = NodePath("../../InputManager")
+player = NodePath("../..")
+grab_range = NodePath("../../Area2D")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="idle" type="Node" parent="Node" unique_id=1240197086 node_paths=PackedStringArray("player", "inp_man")]
+script = ExtResource("6_qek5x")
+player = NodePath("../..")
+inp_man = NodePath("../../InputManager")
+metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="InputManager" type="Node" parent="." unique_id=899134342]
+script = ExtResource("3_gmlin")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1618253194]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=223070036]
+shape = SubResource("RectangleShape2D_obowi")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://05j1g2muppjl"]
+
+[ext_resource type="Script" uid="uid://covnfck7yj5cp" path="res://scripts/alim/item/weapon/throwing weapons.gd" id="1_hkkq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o44uv"]
+size = Vector2(2, 2)
+
+[node name="pebble" type="Node2D" unique_id=140819069 node_paths=PackedStringArray("RigidBody")]
+script = ExtResource("1_hkkq1")
+RigidBody = NodePath("RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1015450901]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=783123846]
+shape = SubResource("RectangleShape2D_o44uv")

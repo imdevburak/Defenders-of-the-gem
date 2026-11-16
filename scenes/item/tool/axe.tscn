@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cn4qxtuyfkbhv"]
+
+[ext_resource type="Script" uid="uid://c63xqf666mnno" path="res://scripts/alim/item/tool/tool.gd" id="1_njxs5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxs5"]
+size = Vector2(12, 18)
+
+[node name="axe" type="Node2D" unique_id=343291915 node_paths=PackedStringArray("RigidBody")]
+script = ExtResource("1_njxs5")
+type = 0
+RigidBody = NodePath("RigidBody2D")
+metadata/_custom_type_script = "uid://c63xqf666mnno"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=341016948]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=299529120]
+shape = SubResource("RectangleShape2D_njxs5")
