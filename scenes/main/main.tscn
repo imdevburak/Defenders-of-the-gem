@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://d1g00ya7lv3c8"]
 
 [ext_resource type="PackedScene" uid="uid://crrducoxjseb" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://bormjob2nmb1c" path="res://scenes/item/melee weapons/rock.tscn" id="2_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://dvlxf4r45qntd" path="res://scenes/item/ranged weapons/bow.tscn" id="3_hujxm"]
+[ext_resource type="PackedScene" uid="uid://05j1g2muppjl" path="res://scenes/item/throwing weapons/pebble.tscn" id="4_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://cn4qxtuyfkbhv" path="res://scenes/item/tool/axe.tscn" id="5_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://c3hx0lbbwpcp2" path="res://scenes/item/tool/pickaxe.tscn" id="6_a8run"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vom5j"]
 
@@ -15,3 +20,18 @@ position = Vector2(-80, 171)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1131107954]
 position = Vector2(72, 14.5)
 shape = SubResource("WorldBoundaryShape2D_vom5j")
+
+[node name="rock" parent="." unique_id=468014935 instance=ExtResource("2_ow5a4")]
+position = Vector2(38, 169)
+
+[node name="bow" parent="." unique_id=663544274 instance=ExtResource("3_hujxm")]
+position = Vector2(55, 168)
+
+[node name="pebble" parent="." unique_id=140819069 instance=ExtResource("4_yyfjg")]
+position = Vector2(67, 170)
+
+[node name="axe" parent="." unique_id=343291915 instance=ExtResource("5_b1x3f")]
+position = Vector2(38, 151)
+
+[node name="pickaxe" parent="." unique_id=1998032908 instance=ExtResource("6_a8run")]
+position = Vector2(55, 140)
