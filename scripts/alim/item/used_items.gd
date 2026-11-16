@@ -14,12 +14,6 @@ func use(object : Node2D):
 		reload_to_use()
 
 @warning_ignore("unused_parameter")
-func attack(enemy : Enemy, dir : Vector2):
-	if ready_to_use and enemy:
-		use_f(enemy)
-		reload_to_use()
-
-@warning_ignore("unused_parameter")
 func use_f(object : Node2D):
 	pass
 
@@ -29,8 +23,10 @@ func wear():
 		destruction()
 
 func destruction():
-	get_parent().drop()
+	if get_parent().has_method("drop"):
+		get_parent().drop()
 	queue_free()
+
 
 func reload_to_use():
 	ready_to_use = false

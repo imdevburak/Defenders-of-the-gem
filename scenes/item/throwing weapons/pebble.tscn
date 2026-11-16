@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://covnfck7yj5cp" path="res://scripts/alim/item/weapon/throwing weapons.gd" id="1_hkkq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o44uv"]
-size = Vector2(2, 2)
+size = Vector2(6, 6)
 
-[node name="pebble" type="Node2D" unique_id=140819069 node_paths=PackedStringArray("RigidBody")]
+[node name="pebble" type="Node2D" unique_id=225258962 node_paths=PackedStringArray("RigidBody")]
 script = ExtResource("1_hkkq1")
 RigidBody = NodePath("RigidBody2D")
+metadata/_custom_type_script = "uid://covnfck7yj5cp"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1015450901]
 
