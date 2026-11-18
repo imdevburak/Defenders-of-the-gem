@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Defenders-of-the-gem"
+run/main_scene="uid://d1g00ya7lv3c8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/art/icon.svg"
 
@@ -20,8 +21,6 @@ VolumeSettings="*uid://7u7nej401565"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=380
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

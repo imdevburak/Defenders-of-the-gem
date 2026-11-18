@@ -20,15 +20,14 @@ func use_f(object : Node2D):
 # Универсальный метод запуска для броска рукой и выстрела из лука
 func launch(start_pos: Vector2, norm_dir: Vector2, force: float, shooter: Node2D):
 	in_arm = false
-	if RigidBody:
-		RigidBody.freeze = false # Обязательно размораживаем тело!
-		RigidBody.global_position = start_pos + norm_dir * 15.0 # Небольшой отступ от стрелка
-		RigidBody.rotation = norm_dir.angle()
+	freeze = false # Обязательно размораживаем тело!
+	global_position = start_pos + norm_dir * 15.0 # Небольшой отступ от стрелка
+	rotation = norm_dir.angle()
 		
-		if shooter is PhysicsBody2D:
-			RigidBody.add_collision_exception_with(shooter)
-			
-		RigidBody.apply_central_impulse(norm_dir * force)
+	if shooter is PhysicsBody2D:
+		add_collision_exception_with(shooter)
+		
+		apply_central_impulse(norm_dir * force)
 
 func set_dir(dir : Vector2):
 	direction = dir

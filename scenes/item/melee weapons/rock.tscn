@@ -5,14 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c1js"]
 size = Vector2(12, 12)
 
-[node name="rock" type="Node2D" unique_id=468014935 node_paths=PackedStringArray("RigidBody")]
+[node name="rock" type="RigidBody2D" unique_id=1835279168]
 script = ExtResource("1_mrnu6")
 usage = 30
 rate = 1.3
-RigidBody = NodePath("RigidBody2D")
 metadata/_custom_type_script = "uid://dy5io1fpv6yxh"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1015450901]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=783123846]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=783123846]
 shape = SubResource("RectangleShape2D_3c1js")

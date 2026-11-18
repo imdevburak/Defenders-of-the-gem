@@ -5,12 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okdwc"]
 size = Vector2(9, 3)
 
-[node name="arrow" type="Node2D" unique_id=1633278984 node_paths=PackedStringArray("RigidBody")]
+[node name="arrow" type="RigidBody2D" unique_id=1607582734]
 script = ExtResource("1_okdwc")
-RigidBody = NodePath("RigidBody2D")
 metadata/_custom_type_script = "uid://covnfck7yj5cp"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=108641837]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1013946775]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013946775]
 shape = SubResource("RectangleShape2D_okdwc")
