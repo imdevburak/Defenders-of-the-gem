@@ -13,7 +13,7 @@
 scale = Vector2(2, 2)
 
 [node name="CharacterBody2D" parent="." unique_id=1376806514 instance=ExtResource("1_hyk8p")]
-position = Vector2(-92, 54)
+position = Vector2(0, 161)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1017306186]
 position = Vector2(-80, 171)

@@ -10,10 +10,11 @@ func _ready() -> void:
 	set_collision_layer_value(2,true)
 	set_collision_mask_value(2,true)
 
-func grab(Grab_point_position : Vector2):
+func grab(Grab_node : Node2D):
 	in_arm = true
 	freeze = true
-	global_position = Grab_point_position
+	self.reparent(Grab_node)
+	global_position = Grab_node.global_position
 
 func drop():
 	in_arm = false
