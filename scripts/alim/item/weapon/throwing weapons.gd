@@ -31,3 +31,7 @@ func launch(start_pos: Vector2, norm_dir: Vector2, force: float, shooter: Node2D
 
 func set_dir(dir : Vector2):
 	direction = dir
+
+
+func _on_body_entered(body: Node) -> void:
+	pass # Replace with function body.

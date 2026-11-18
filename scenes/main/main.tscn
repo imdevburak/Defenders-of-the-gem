@@ -10,7 +10,6 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vom5j"]
 
 [node name="Main" type="Node2D" unique_id=411712917]
-scale = Vector2(2, 2)
 
 [node name="CharacterBody2D" parent="." unique_id=1376806514 instance=ExtResource("1_hyk8p")]
 position = Vector2(0, 161)
