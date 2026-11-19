@@ -12,7 +12,7 @@
 [node name="Main" type="Node2D" unique_id=411712917]
 
 [node name="CharacterBody2D" parent="." unique_id=1376806514 instance=ExtResource("1_hyk8p")]
-position = Vector2(-92, 162)
+position = Vector2(0, 161)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1017306186]
 position = Vector2(-80, 171)

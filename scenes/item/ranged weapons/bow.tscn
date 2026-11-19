@@ -6,13 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egnq3"]
 size = Vector2(9, 18)
 
-[node name="bow" type="Node2D" unique_id=663544274 node_paths=PackedStringArray("RigidBody")]
+[node name="bow" type="RigidBody2D" unique_id=1751307951]
 script = ExtResource("1_uoh32")
 projectile = ExtResource("2_oqif0")
-RigidBody = NodePath("RigidBody2D")
 metadata/_custom_type_script = "uid://dushrvi8oiius"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2146735671]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2078982154]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2078982154]
 shape = SubResource("RectangleShape2D_egnq3")

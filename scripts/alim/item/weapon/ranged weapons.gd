@@ -18,7 +18,7 @@ func use_f(object : Node2D):
 		return
 		
 	var norm_dir = direction.normalized()
-	ins.strength += strength # Исправлена опечатка strenge -> strength
+	ins.strength += strength
 	
 	# Добавляем стрелу в главную сцену и запускаем её
 	get_tree().current_scene.add_child(ins)

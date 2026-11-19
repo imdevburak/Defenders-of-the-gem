@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dip5500f7tc5k" path="res://scripts/player/airborn.gd" id="4_p47bc"]
 [ext_resource type="Script" uid="uid://ct58xhmotpdim" path="res://scripts/player/grab.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://dotwqaybjbyd0" path="res://scripts/player/idle.gd" id="6_qek5x"]
-[ext_resource type="Script" uid="uid://eqq0r43na1b6" path="res://scripts/player/jump.gd" id="7_qek5x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdlsc"]
 
@@ -55,20 +54,10 @@ player = NodePath("../..")
 inp_man = NodePath("../../InputManager")
 metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
 
-[node name="jump" type="Node" parent="Node" unique_id=1939661900 node_paths=PackedStringArray("player")]
-script = ExtResource("7_qek5x")
-player = NodePath("../..")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
-
 [node name="InputManager" type="Node" parent="." unique_id=899134342]
 script = ExtResource("3_gmlin")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1618253194]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=223070036]
 shape = SubResource("RectangleShape2D_obowi")
-
-[node name="hand" type="Marker2D" parent="." unique_id=1729799755]
-position = Vector2(0, -26)
