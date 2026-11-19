@@ -1,6 +1,7 @@
 extends RigidBody2D
 class_name Item
 
+@export var item_name : StringName
 var in_arm : bool = false
 
 func _ready() -> void:

@@ -6,8 +6,11 @@
 size = Vector2(9, 3)
 
 [node name="arrow" type="RigidBody2D" unique_id=1607582734]
+contact_monitor = true
 script = ExtResource("1_okdwc")
 metadata/_custom_type_script = "uid://covnfck7yj5cp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013946775]
 shape = SubResource("RectangleShape2D_okdwc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,7 +7,7 @@ var direction : Vector2 = Vector2.RIGHT
 func use(object : Node2D):
 	if ready_to_use and object:
 		use_f(object)
-		reload_to_use() # wear() уже внутри reload_to_use(), второй раз не пишем
+		reload_to_use()
 
 func use_f(object : Node2D):
 	# Если сцена загружена из файла, создаем чистый экземпляр всего предмета (Node2D + RigidBody)
@@ -16,6 +16,9 @@ func use_f(object : Node2D):
 		ins.strength = strength # Передаем текущий урон
 		get_tree().current_scene.add_child(ins)
 		ins.launch(object.global_position, direction.normalized(), throw_force, object)
+
+func set_dir(dir : Vector2):
+	direction = dir
 
 # Универсальный метод запуска для броска рукой и выстрела из лука
 func launch(start_pos: Vector2, norm_dir: Vector2, force: float, shooter: Node2D):
@@ -29,9 +32,6 @@ func launch(start_pos: Vector2, norm_dir: Vector2, force: float, shooter: Node2D
 		
 		apply_central_impulse(norm_dir * force)
 
-func set_dir(dir : Vector2):
-	direction = dir
-
-
 func _on_body_entered(body: Node) -> void:
-	pass # Replace with function body.
+	if body.has_method("get_damage"):
+		body.get_damage(strength)
