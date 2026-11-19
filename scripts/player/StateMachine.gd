@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 		current_state._debug()
 
 func _on_change_state(new_state: String) -> void:
+	if !states.has(new_state.to_lower()): 
+		push_error("No state by the name: ", new_state)
+		return
 	var previous_state = current_state
 	current_state._exit()
 	current_state = states.get(new_state.to_lower())

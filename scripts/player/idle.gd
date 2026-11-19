@@ -12,5 +12,5 @@ func _update(delta: float) -> void:
 		change_state.emit("move")
 	elif inp_man.jump_inp_pressed:
 		change_state.emit("jump")
-	elif Input.is_action_just_pressed("grab"):
+	elif Input.is_action_just_pressed("grab&drop"):
 		change_state.emit("grab")

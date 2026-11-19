@@ -11,5 +11,5 @@ func _update(delta: float) -> void:
 	
 	if player.is_on_floor():
 		change_state.emit("idle")
-	elif Input.is_action_just_pressed("grab"):
+	elif Input.is_action_just_pressed("grab&drop"):
 		change_state.emit("grab")
