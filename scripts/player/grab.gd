@@ -9,26 +9,23 @@ extends State
 func _update(delta: float) -> void:
 	# Move the player based on the input
 	
-	if grab_range.get_overlapping_bodies():
-		for body in grab_range.get_overlapping_bodies():
-			if body is RigidBody2D:
-				_pick_up(body)
-	else:
-		player.velocity.x = lerp(player.velocity.x, inp_man.direction.x * speed, axel)
-		player.move_and_slide()
-		
-		# Change state
-		if !player.is_on_floor():
-			change_state.emit("airborn")
-		elif inp_man.jump_inp_pressed:
-			change_state.emit("jump")
-		else:
+	
+	
+	for body in grab_range.get_overlapping_bodies():
+		if body is RigidBody2D:
+			player.current_item_in_hand = body.get_parent()
+			player.current_item_in_hand.grab($"../../hand".global_position)
 			change_state.emit("idle")
-		
+			break
+	
+	if player.current_item_in_hand:
+		if !grab_range.get_overlapping_bodies():
+			player.current_item_in_hand.drop()
+			player.current_item_in_hand = null
+			print("jaj")
+			change_state.emit("idle")
+	change_state.emit("idle")
 
-func _pick_up(body: RigidBody2D) -> void:
-	# should add somthing like this then merging body.pickup.emit(GrabObjectTargetPosition)
-	pass
 
 func _debug() -> void:
 	print("Bodies to pick up: ",grab_range.get_overlapping_bodies())
