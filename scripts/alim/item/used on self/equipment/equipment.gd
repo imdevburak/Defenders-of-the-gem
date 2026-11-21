@@ -5,7 +5,7 @@ class_name Equipment
 
 var equipped : bool = false
 
-func use(player : Node2D):
+func use(player : Player):
 	in_arm = false
 	equipped = true
 	self.reparent(player)

@@ -3,7 +3,7 @@ class_name Armor
 
 @export_range(1, 15, 1) var protected : int
 
-func use(player : Node2D):
+func use(player : Player):
 	super(player)
 	# player.protect += protected
 

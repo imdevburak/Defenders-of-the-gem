@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="YggdrasilGroup" format=3 uid="uid://cwka30ug4dk30"]
+
+[ext_resource type="Script" uid="uid://bt8qpikafu7xg" path="res://addons/yggdrasil/scripts/resources/yggdrasil_group.gd" id="1_ej68c"]
+[ext_resource type="Resource" uid="uid://ccs27ttrgf6mi" path="res://yggdrasil_data/Neolit/new_tree.tres" id="2_6ydkt"]
+
+[resource]
+script = ExtResource("1_ej68c")
+name = "Neolithic"
+trees = [ExtResource("2_6ydkt")]
