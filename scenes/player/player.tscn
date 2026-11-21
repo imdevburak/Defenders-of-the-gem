@@ -33,6 +33,7 @@ script = ExtResource("2_je7p5")
 [node name="Node" type="Node" parent="." unique_id=1656168921 node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_dovo2")
 current_state = NodePath("move")
+debug = true
 
 [node name="move" type="Node" parent="Node" unique_id=2109042922 node_paths=PackedStringArray("player", "inp_man")]
 script = ExtResource("2_dovo2")
