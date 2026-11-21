@@ -1,4 +1,4 @@
-class_name PlayerGrabManager
+class_name PlayerItemManager
 extends Node
 
 @export var hand: Marker2D
