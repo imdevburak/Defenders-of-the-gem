@@ -1,7 +1,6 @@
 extends Used_items
 class_name Throwing_weapons
 
-var direction : Vector2 = Vector2.RIGHT
 @export var throw_force : float = 500.0
 
 func use(object : Node2D):
@@ -15,10 +14,8 @@ func use_f(object : Node2D):
 		var ins = load(scene_file_path).instantiate() as Throwing_weapons
 		ins.strength = strength # Передаем текущий урон
 		get_tree().current_scene.add_child(ins)
-		ins.launch(object.global_position, direction.normalized(), throw_force, object)
-
-func set_dir(dir : Vector2):
-	direction = dir
+		var direction : Vector2	 = self.global_position.direction_to(get_global_mouse_position())
+		ins.launch(object.global_position, direction, throw_force, object)
 
 # Универсальный метод запуска для броска рукой и выстрела из лука
 func launch(start_pos: Vector2, norm_dir: Vector2, force: float, shooter: Node2D):

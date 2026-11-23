@@ -10,7 +10,7 @@ func _ready() -> void:
 	if not slotsPositions.is_empty():
 		slotsFree = slotsPositions.size() - 1
 
-func use(player : Node2D):
+func use(player : Player):
 	super(player)
 	# player.backpack = self
 
