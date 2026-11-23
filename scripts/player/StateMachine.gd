@@ -15,8 +15,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	current_state._update(delta)
-	if Input.is_action_pressed("debug print"): debug = !debug
-	if debug :
+	if debug and Input.is_action_pressed("debug print"):
 		print("-- Debug --")
 		print("State machine name: ", self.name)
 		print("Current state: ", current_state.name)

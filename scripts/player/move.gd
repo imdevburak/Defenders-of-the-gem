@@ -9,6 +9,7 @@ extends State
 func _update(delta: float) -> void:
 	# Move the player based on the input
 	player.velocity.x = lerp(player.velocity.x, inp_man.direction.x * speed, axel)
+	player.move_and_slide()
 	
 	# Change state
 	if !player.is_on_floor():
