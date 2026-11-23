@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://cor3pgjedltfm" path="res://scripts/player/StateMachine.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://dax4lfwcjjydu" path="res://scripts/player/player.gd" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://y46elvwrgxtf" path="res://scripts/player/move.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://dibvqmiymdxws" path="res://scenes/player/PlayerCamera.gd" id="2_je7p5"]
 [ext_resource type="Script" uid="uid://bstrccipl6enr" path="res://scripts/player/InputManager.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://dip5500f7tc5k" path="res://scripts/player/airborn.gd" id="4_p47bc"]
 [ext_resource type="Script" uid="uid://ct58xhmotpdim" path="res://scripts/player/grab.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://dotwqaybjbyd0" path="res://scripts/player/idle.gd" id="6_qek5x"]
 [ext_resource type="Script" uid="uid://eqq0r43na1b6" path="res://scripts/player/jump.gd" id="7_qek5x"]
+[ext_resource type="Script" uid="uid://dq6qrxkldobjt" path="res://scenes/player/equip.gd" id="8_h17s1"]
 [ext_resource type="Script" uid="uid://c2t2fpy46e8xr" path="res://scenes/player/player_grab_manager.gd" id="9_5gtgg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdlsc"]
@@ -15,57 +17,74 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obowi"]
 size = Vector2(56, 30)
 
+[sub_resource type="Gradient" id="Gradient_je7p5"]
+offsets = PackedFloat32Array(0, 0.50974023, 1)
+colors = PackedColorArray(0, 18.892157, 0, 1, 1.1001844, 18.892157, 0, 1, 0, 18.892157, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m35kc"]
+gradient = SubResource("Gradient_je7p5")
+width = 32
+height = 8
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1376806514]
 script = ExtResource("1_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484339234]
 shape = SubResource("CapsuleShape2D_sdlsc")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=239062626]
+[node name="Camera" type="Camera2D" parent="." unique_id=239062626]
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+script = ExtResource("2_je7p5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=407123920]
 
 [node name="Node" type="Node" parent="." unique_id=1656168921 node_paths=PackedStringArray("current_state")]
 script = ExtResource("1_dovo2")
 current_state = NodePath("move")
-metadata/_custom_type_script = "uid://cor3pgjedltfm"
+debug = true
 
 [node name="move" type="Node" parent="Node" unique_id=2109042922 node_paths=PackedStringArray("player", "inp_man")]
 script = ExtResource("2_dovo2")
 player = NodePath("../..")
 inp_man = NodePath("../../InputManager")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
 
 [node name="airborn" type="Node" parent="Node" unique_id=1739525470 node_paths=PackedStringArray("player")]
 script = ExtResource("4_p47bc")
 player = NodePath("../..")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
 
-[node name="grab" type="Node" parent="Node" unique_id=1870332096 node_paths=PackedStringArray("inp_man", "grab_man", "player", "grab_range")]
+[node name="grab" type="Node" parent="Node" unique_id=1870332096 node_paths=PackedStringArray("inp_man", "grab_man", "player", "grab_range", "hold_ui", "hold_timer")]
 script = ExtResource("5_0owmy")
 inp_man = NodePath("../../InputManager")
-grab_man = NodePath("../../GrabManger")
+grab_man = NodePath("../../PlayerItemManager")
 player = NodePath("../..")
 grab_range = NodePath("../../Area2D")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+hold_ui = NodePath("../../holdUI")
+hold_timer = NodePath("hold timer")
+
+[node name="hold timer" type="Timer" parent="Node/grab" unique_id=1920279494]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
 
 [node name="idle" type="Node" parent="Node" unique_id=1240197086 node_paths=PackedStringArray("player", "inp_man")]
 script = ExtResource("6_qek5x")
 player = NodePath("../..")
 inp_man = NodePath("../../InputManager")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
 
 [node name="jump" type="Node" parent="Node" unique_id=642420960 node_paths=PackedStringArray("player")]
 script = ExtResource("7_qek5x")
 player = NodePath("../..")
-metadata/_custom_type_script = "uid://ds5vvg4gnaa0t"
+
+[node name="equip" type="Node" parent="Node" unique_id=37376465 node_paths=PackedStringArray("item_man", "player")]
+script = ExtResource("8_h17s1")
+item_man = NodePath("../../PlayerItemManager")
+player = NodePath("../..")
 
 [node name="InputManager" type="Node" parent="." unique_id=899134342]
 script = ExtResource("3_gmlin")
 
-[node name="GrabManger" type="Node" parent="." unique_id=1331163752 node_paths=PackedStringArray("hand")]
+[node name="PlayerItemManager" type="Node" parent="." unique_id=1331163752 node_paths=PackedStringArray("hand")]
 script = ExtResource("9_5gtgg")
 hand = NodePath("../hand")
 
@@ -77,4 +96,13 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_obowi")
 
 [node name="hand" type="Marker2D" parent="." unique_id=288195802]
-position = Vector2(0, -39)
+position = Vector2(0, -23)
+
+[node name="holdUI" type="TextureProgressBar" parent="." unique_id=968350103]
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = -20.0
+value = 100.0
+fill_mode = 6
+texture_progress = SubResource("GradientTexture2D_m35kc")

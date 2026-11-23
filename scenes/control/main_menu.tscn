@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co8e50uftlxdi" path="res://scripts/alim/control/main menu/main_menu_panel.gd" id="1_vmd3t"]
 [ext_resource type="Script" uid="uid://bn1anrk4nli0m" path="res://scripts/alim/control/main menu/settings.gd" id="2_bwalt"]
+[ext_resource type="PackedScene" uid="uid://d1g00ya7lv3c8" path="res://scenes/main/main.tscn" id="2_p8yjm"]
 
 [node name="main menu" type="Control" unique_id=1613050171]
 layout_mode = 3
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 offset_right = 280.0
 grow_vertical = 2
 script = ExtResource("1_vmd3t")
+GrayBox = ExtResource("2_p8yjm")
 SettingsNode = NodePath("../Settings")
 
 [node name="Panel" type="Panel" parent="Panel" unique_id=942447210]
