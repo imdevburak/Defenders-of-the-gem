@@ -27,6 +27,7 @@ LitManager="*uid://brf2hvdtyyw3q"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+<<<<<<< HEAD
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/EditorShapes/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/lit/plugin.cfg", "res://addons/xesa/EditorShapes/plugin.cfg", "res://addons/yggdrasil/plugin.cfg")
@@ -63,6 +64,8 @@ grab&drop={
 ]
 }
 
+=======
+>>>>>>> parent of 90701be (Added player and state machine)
 [physics]
 
 3d/physics_engine="Jolt Physics"
